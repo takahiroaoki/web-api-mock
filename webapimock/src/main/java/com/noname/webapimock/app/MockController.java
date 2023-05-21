@@ -20,7 +20,7 @@ public class MockController {
     MockService mockService;
 
     @RequestMapping(path = "/**")
-    String mock(HttpServletRequest request, HttpServletResponse response) {
+    String mockAction(HttpServletRequest request, HttpServletResponse response) {
         String mockPath = request.getRequestURI().substring(Path.MOCK_BASE.length());
         Mock mock = mockService
                 .findMockByMockPath(mockPath)

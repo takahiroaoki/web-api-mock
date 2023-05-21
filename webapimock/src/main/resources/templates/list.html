@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>The registered mocks.</h1>
+    <div th:each="mock: ${mockList}">
+        <p th:text="${mock.mockName}"></p>
+    </div>
+</body>
+
+</html>
