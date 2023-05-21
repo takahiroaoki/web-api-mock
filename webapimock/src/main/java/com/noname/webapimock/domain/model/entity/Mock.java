@@ -12,6 +12,9 @@ public class Mock {
     @Column(name = "mock_path")
     private String mockPath;// The part after "/mock".
 
+    @Column(name = "mock_name")
+    private String mockName;
+
     @Column(name = "status_code")
     private Integer statusCode;
 
@@ -27,6 +30,15 @@ public class Mock {
 
     public Mock setMockPath(String mockPath) {
         this.mockPath = mockPath;
+        return this;
+    }
+
+    public String getMockName() {
+        return this.mockName != null ? this.mockName : "";
+    }
+
+    public Mock setMockName(String mockName) {
+        this.mockName = mockName;
         return this;
     }
 

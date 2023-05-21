@@ -35,6 +35,25 @@ public class MockTest {
     }
 
     @Test
+    void testGetMockName() {
+        Mock mock = new Mock();
+        // Not set yet
+        assertEquals("", mock.getMockName());
+        // After setting
+        mock.setMockName("test");
+        assertEquals("test", mock.getMockName());
+    }
+
+    @Test
+    void testSetMockName()
+            throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+        Mock mock = new Mock().setMockName("test");
+        Field mockName = mock.getClass().getDeclaredField("mockName");
+        mockName.setAccessible(true);
+        assertEquals("test", mockName.get(mock).toString());
+    }
+
+    @Test
     void testGetStatusCode() {
         Mock mock = new Mock();
         // Not set yet

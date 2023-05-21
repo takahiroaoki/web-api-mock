@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS mocks;
 
 # 'mocks' table
 CREATE TABLE mocks (
+    mock_name VARCHAR(100) NOT NULL,
     mock_path VARCHAR(100) NOT NULL,
     status_code INT(3) NOT NULL,
     content_type VARCHAR(16) NOT NULL,
@@ -13,13 +14,15 @@ CREATE TABLE mocks (
     PRIMARY KEY(mock_path)
 );
 INSERT INTO mocks (
+    mock_name,
     mock_path,
     status_code,
     content_type,
     response_body
 ) VALUES (
-    '/test/greeting',
+    "Sample Mock",
+    '/sample',
     200,
     'application/json',
-    '{"greeting":"Hello, world!"}'
+    '{"sample":"This is a sample mock which is initially registered."}'
 );
