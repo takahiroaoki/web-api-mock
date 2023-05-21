@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  java:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/java/Dockerfile
+    container_name: ${APP_CONTAINER_NAME}
+    environment:
+      - DB_CONTAINER_NAME=${DB_CONTAINER_NAME}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    depends_on:
+      - mysql
+    volumes:
+      - ./webapimock:/webapimock
+      - ./scripts/java:/webapimock/scripts
+    working_dir: /webapimock
+    networks:
+      - webapimock_network
+    ports:
+      - 8080:8080
+    tty: true
+  mysql:
+    image: mysql:8.0.33
+    container_name: ${DB_CONTAINER_NAME}
+    volumes:
+      - ./scripts/mysql:/scripts
+    working_dir: /scripts
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    networks:
+      - webapimock_network
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    tty: true
+
+networks:
+  webapimock_network:
+    driver: bridge
