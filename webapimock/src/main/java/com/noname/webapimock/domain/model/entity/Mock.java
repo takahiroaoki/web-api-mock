@@ -13,7 +13,7 @@ public class Mock {
     private String mockPath;// The part after "/mock".
 
     @Column(name = "status_code")
-    private int statusCode;
+    private Integer statusCode;
 
     @Column(name = "content_type")
     private String contentType;
@@ -22,7 +22,7 @@ public class Mock {
     private String responseBody;
 
     public String getMockPath() {
-        return this.mockPath;
+        return this.mockPath != null ? this.mockPath : "";
     }
 
     public Mock setMockPath(String mockPath) {
@@ -30,8 +30,8 @@ public class Mock {
         return this;
     }
 
-    public int getStatusCode() {
-        return this.statusCode;
+    public Integer getStatusCode() {
+        return this.statusCode != null ? this.statusCode : 500;
     }
 
     public Mock setStatusCode(int statusCode) {
@@ -40,7 +40,7 @@ public class Mock {
     }
 
     public String getContentType() {
-        return this.contentType;
+        return this.contentType != null ? this.contentType : "";
     }
 
     public Mock setContentType(String contentType) {
@@ -49,7 +49,7 @@ public class Mock {
     }
 
     public String getResponseBody() {
-        return this.responseBody;
+        return this.responseBody != null ? this.responseBody : "";
     }
 
     public Mock setResponseBody(String responseBody) {
