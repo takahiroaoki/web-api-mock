@@ -1,8 +1,13 @@
 # web-api-mock
 
-This project is for easy creation of web api mock using Spring Boot 3.0.1.
+This project is for easy creation of web api mock.
 
-## Environment
+## Tech stack
+- Node.JS 18
+- Spring Boot 3.0.1 (Java 17)
+- MySQL 8
+
+## Requiements
 The environment is bellow.
 
 - Windows 11
