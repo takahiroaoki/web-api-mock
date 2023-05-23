@@ -1,0 +1,8 @@
+<div class="mocklist">
+    <div th:if="${#lists.size(mockList)>0}">
+        The registered mocks are here.
+    </div>
+    <div th:each="mock: ${mockList}">
+        <p th:text="${mock.mockName}"></p>
+    </div>
+</div>
