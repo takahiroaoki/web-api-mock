@@ -26,10 +26,9 @@ services:
     tty: true
   node:
     image: node:18.16.0
-    container_name: ${FRONT_DEV_CONTAINER}
+    container_name: ${FRONT_DEV_CONTAINER_NAME}
     volumes:
       - ./frontend:/frontend
-      - ./scripts/node:/frontend/scripts
       - volume_trick:/frontend/node_modules
     working_dir: /frontend
     entrypoint: "/bin/bash -c 'npm ci && npm run build'"
