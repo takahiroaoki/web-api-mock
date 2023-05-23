@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link th:href="@{/list/index.css}" rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="headline">The registered mocks.</h1>
+    <div th:each="mock: ${mockList}">
+        <p th:text="${mock.mockName}"></p>
+    </div>
+    <script th:src="@{/list/index.js}"></script>
+</body>
+
+</html>

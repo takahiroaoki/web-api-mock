@@ -3,7 +3,7 @@
 	"dockerComposeFile": [
 		"../docker-compose.yaml"
 	],
-	"service": "java",
+	"service": "app",
 	"workspaceFolder": "/webapimock",
 	"customizations": {
 		"vscode": {

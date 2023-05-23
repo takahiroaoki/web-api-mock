@@ -19,10 +19,10 @@ public class ListController {
     MockService mockService;
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    String listAction(Model model) {
+    String indexAction(Model model) {
         List<Mock> mockList = mockService.findAllMocks();
         model.addAttribute("mockList", mockList);
-        return "list";
+        return "list/index";
     }
 
 }

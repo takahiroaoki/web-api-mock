@@ -13,14 +13,26 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     depends_on:
       - mysql
+      - node
     volumes:
-      - ./webapimock:/webapimock
+      - ./backend/webapimock:/webapimock
+      - ./frontend/build:/webapimock/src/main/resources/static
       - ./scripts/java:/webapimock/scripts
     working_dir: /webapimock
     networks:
       - webapimock_network
     ports:
       - 8080:8080
+    tty: true
+  node:
+    image: node:18.16.0
+    container_name: ${FRONT_DEV_CONTAINER}
+    volumes:
+      - ./frontend:/frontend
+      - ./scripts/node:/frontend/scripts
+      - volume_trick:/frontend/node_modules
+    working_dir: /frontend
+    entrypoint: "/bin/bash -c 'npm ci'"
     tty: true
   mysql:
     image: mysql:8.0.33
@@ -40,8 +52,10 @@ services:
       - 3306:3306
     expose:
       - 3306
-    tty: true
 
 networks:
   webapimock_network:
     driver: bridge
+
+volumes:
+  volume_trick:
