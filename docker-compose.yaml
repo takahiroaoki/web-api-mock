@@ -32,8 +32,7 @@ services:
       - ./scripts/node:/frontend/scripts
       - volume_trick:/frontend/node_modules
     working_dir: /frontend
-    entrypoint: "/bin/bash -c 'npm ci'"
-    tty: true
+    entrypoint: "/bin/bash -c 'npm ci && npm run build'"
   mysql:
     image: mysql:8.0.33
     container_name: ${DB_CONTAINER_NAME}
