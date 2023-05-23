@@ -17,7 +17,10 @@ $ docker exec -it webapimock_db /bin/bash /scripts/setup.sh
 
 ## Boot
 ```
-# Build and boot by Gradle. Get access to http://localhost:8080 after the build is completed.
+# Build the frontend-src.
+$ docker-compose up webapimock_frontdev -d
+
+# Build and boot by Gradle. Get access to http://localhost:8080/list after the build is completed.
 $ docker exec -it webapimock_app /bin/bash /webapimock/scripts/boot.sh
 ```
 

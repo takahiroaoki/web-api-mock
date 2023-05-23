@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link th:href="@{/list/index.css}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="index__headline" th:include="list/components/headline/headline"></div>
+    <div class="index__mocklist" th:include="list/components/mock-list/mock-list"></div>
+    <script th:src="@{/list/index.js}"></script>
+</body>
+
+</html>
