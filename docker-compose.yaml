@@ -25,7 +25,9 @@ services:
       - 8080:8080
     tty: true
   node:
-    image: node:18.16.0
+    build:
+      context: .
+      dockerfile: ./dockerfiles/node/Dockerfile
     container_name: ${FRONT_DEV_CONTAINER_NAME}
     volumes:
       - ./frontend:/frontend
