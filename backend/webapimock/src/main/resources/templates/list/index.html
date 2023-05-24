@@ -6,8 +6,16 @@
 </head>
 
 <body>
-    <div class="index__headline" th:include="list/components/headline/headline"></div>
-    <div class="index__mocklist" th:include="list/components/mock-list/mock-list"></div>
+    <div class="index__headline">
+        <th:block th:insert="~{list/components/headline/headline::frag(componentid=headline)}"></th:block>
+    </div>
+    <div class="index__create-button">
+        <th:block th:insert="~{list/components/create-button/create-button::frag(componentid=create-button)}">
+        </th:block>
+    </div>
+    <div class="index__mock-list">
+        <th:block th:insert="~{list/components/mock-list/mock-list::frag(componentid=mock-list)}"></th:block>
+    </div>
     <script th:src="@{/list/index.js}"></script>
 </body>
 
