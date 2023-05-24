@@ -1,12 +1,15 @@
 package com.noname.webapimock.app;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import com.noname.webapimock.domain.model.constant.Path;
 import com.noname.webapimock.domain.model.entity.Mock;
@@ -18,11 +21,22 @@ public class ListController {
     @Autowired
     MockService mockService;
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
     String indexAction(Model model) {
         List<Mock> mockList = mockService.findAllMocks();
         model.addAttribute("mockList", mockList);
+        model.addAttribute("newMock", new Mock());
         return "list/index";
+    }
+
+    @RequestMapping(path = "/create", method = RequestMethod.POST)
+    String createAction(@ModelAttribute Mock mock, UriComponentsBuilder builder) {
+
+        mock.setMockPath("/" + mock.getMockPath());
+        mockService.saveMock(mock);
+
+        URI destination = builder.path(Path.LIST_BASE).build().toUri();
+        return "redirect:" + destination.toString();
     }
 
 }

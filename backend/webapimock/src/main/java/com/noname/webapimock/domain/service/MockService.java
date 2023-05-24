@@ -23,4 +23,9 @@ public class MockService {
     public List<Mock> findAllMocks() {
         return mockRepository.findAll();
     }
+
+    public Mock saveMock(Mock mock) {
+        mockRepository.save(mock);
+        return mock;
+    }
 }

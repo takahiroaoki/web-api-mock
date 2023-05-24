@@ -1,4 +1,4 @@
-<div class="mocklist">
+<div class="mocklist" th:fragment="frag" th:componentid="${componentid}">
     <div th:if="${#lists.size(mockList)>0}">
         The registered mocks are here.
     </div>
