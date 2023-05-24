@@ -5,7 +5,7 @@ import './index.scss';
 const index = () => {
     // mount components
     const createButton = new CreateButton('create-button');
-    const form = new Form('form');
+    const form = new Form('create-form');
 
     // setting
     createButton.onClick(() => {

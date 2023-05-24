@@ -1,4 +1,11 @@
 <div class="form form--hidden" th:fragment="frag" th:componentid="${componentid}">
     <button class="form__close-button">CLOSE</button>
-    <p>Hello, this is overlay.</p>
+    <form action="#" th:action="@{/list/create}" th:object="${newMock}" method="post">
+        <p>Name: <input type="text" th:field="*{mockName}" /></p>
+        <p>Path: /mock/<input type="text" th:field="*{mockPath}" /></p>
+        <p>Status code: <input type="number" th:field="*{statusCode}" /></p>
+        <p>Content type: <input type="text" th:field="*{contentType}" /></p>
+        <p>Response body: <input type="text" th:field="*{responseBody}" /></p>
+        <p><input type="submit" value="Save" /></p>
+    </form>
 </div>
