@@ -1,8 +1,16 @@
-<div class="mocklist">
+<div class="mock-list" th:fragment="frag" th:componentid="${componentid}">
     <div th:if="${#lists.size(mockList)>0}">
         The registered mocks are here.
     </div>
-    <div th:each="mock: ${mockList}">
-        <p th:text="${mock.mockName}"></p>
+    <hr />
+    <div class="mock-list__body" th:each="mock: ${mockList}">
+        <div class="mock-list__each">
+            <div class="mock-list__each__mock-name" th:text="${mock.mockName}"></div>
+            <div class="mock-list__each__mock-path" th:text="${mock.mockPath}"></div>
+            <div class="mock-list__each__status-code" th:text="${mock.statusCode}"></div>
+            <div class="mock-list__each__content-type" th:text="${mock.contentType}"></div>
+            <div class="mock-list__each__response-body" th:text="${mock.responseBody}"></div>
+        </div>
+        <hr />
     </div>
 </div>
