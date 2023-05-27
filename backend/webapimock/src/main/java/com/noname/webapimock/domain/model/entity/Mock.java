@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 public class Mock {
     @Id
     @Column(name = "mock_path")
-    private String mockPath;// The part after "/mock".
+    private String mockPath;
 
     @Column(name = "mock_name")
     private String mockName;
