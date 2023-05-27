@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.noname.webapimock.domain.model.constant.Path;
@@ -23,8 +24,15 @@ public class ListController {
 
     @RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
     String indexAction(Model model) {
+        // mock-list
         List<Mock> mockList = mockService.findAllMocks();
+        String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().toUriString();
+        for (Mock mock : mockList) {
+            mock.setMockPath(baseUrl + Path.MOCK_BASE + mock.getMockPath());
+        }
         model.addAttribute("mockList", mockList);
+
+        // create-button
         model.addAttribute("newMock", new Mock());
         return "list/index";
     }

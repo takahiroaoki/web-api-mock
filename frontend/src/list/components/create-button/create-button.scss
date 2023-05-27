@@ -1,0 +1,13 @@
+.create-button {
+	width: 120px;
+	padding: 10px 40px;
+	font-weight: bold;
+	border: 2px solid #ff8c00;
+	color: #ff8c00;
+    background: #fff;
+
+    &:hover {
+        color: #fff;
+    	background: #ff8c00;
+    }
+}
