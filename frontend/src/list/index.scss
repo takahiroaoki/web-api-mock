@@ -1,6 +1,17 @@
 @import './components/headline/headline';
+@import './components/create-button/create-button';
 @import './components/form/form';
+@import './components/mock-list/mock-list';
 
-.page__headline {
-    margin: 10px;
+.index__headline {
+    margin-top: 20px;
+}
+
+.index__create-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.index__mock-list {
+    margin-top: 20px;
 }

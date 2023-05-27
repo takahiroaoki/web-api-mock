@@ -10,7 +10,10 @@ class Form extends BaseComponent {
     }
 
     onClickCloseButton (fn) {
-        this.getElement() && this.getElement().querySelector('.form__close-button').addEventListener('click', fn);
+        this.getElement() && this.getElement().querySelector('.form__cancel-button').addEventListener('click', (e) => {
+            e.stopPropagation();
+            fn();
+        });
     }
 }
 

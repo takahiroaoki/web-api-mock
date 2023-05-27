@@ -1,11 +1,13 @@
 <div class="form form--hidden" th:fragment="frag" th:componentid="${componentid}">
-    <button class="form__close-button">CLOSE</button>
-    <form action="#" th:action="@{/list/create}" th:object="${newMock}" method="post">
-        <p>Name: <input type="text" th:field="*{mockName}" /></p>
-        <p>Path: /mock/<input type="text" th:field="*{mockPath}" /></p>
-        <p>Status code: <input type="number" th:field="*{statusCode}" /></p>
-        <p>Content type: <input type="text" th:field="*{contentType}" /></p>
-        <p>Response body: <input type="text" th:field="*{responseBody}" /></p>
-        <p><input type="submit" value="Save" /></p>
+    <h2 class="form__headline">Please register your mock.</h2>
+    <button class="form__button form__cancel-button">Cancel</button>
+    <form class="form__body" action="#" th:action="@{/list/create}" th:object="${newMock}" method="post">
+        <p>Mock Name: <input type="text" th:field="*{mockName}" /></p>
+        <p>Mock Path: /mock/<input type="text" th:field="*{mockPath}" /></p>
+        <p>Status Code: <input type="number" th:field="*{statusCode}" /></p>
+        <p>Content Type: <input type="text" th:field="*{contentType}" /></p>
+        <p>Response Body: <input type="text" th:field="*{responseBody}" /></p>
+        <button class="form__button form__save-button"><input type="submit" value=""
+                style="display: none;" />Save</button>
     </form>
 </div>
