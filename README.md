@@ -16,6 +16,10 @@ The environment is bellow.
 
 ## Initial setup
 ```
+# @project root
+$ docker compose build
+$ docker compose up -d
+
 # Initialize the database. Type "password" when asked.
 $ docker exec -it webapimock_db /bin/bash /scripts/setup.sh
 
