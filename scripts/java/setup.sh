@@ -1,7 +1,6 @@
 #!/bin/bash
 
-cd /webapimock
-sudo chown -R dev-user /webapimock
+sudo chown -R $(whoami) /webapimock
 
 cd /webapimock/frontend
 npm ci
