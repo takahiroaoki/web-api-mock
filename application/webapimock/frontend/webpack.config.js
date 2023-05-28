@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: './src/list/index.js',
     output: {
-        path: '/frontend/build/list',
+        path: '/webapimock/src/main/resources/static/list',
         filename: 'index.js',
     },
     module: {

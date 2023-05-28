@@ -15,25 +15,15 @@ services:
       - mysql
       - node
     volumes:
-      - ./backend/webapimock:/webapimock
-      - ./frontend/build:/webapimock/src/main/resources/static
+      - ./application/webapimock:/webapimock
       - ./scripts/java:/webapimock/scripts
+      - volume_trick:/webapimock/frontend/node_modules
     working_dir: /webapimock
     networks:
       - webapimock_network
     ports:
       - 8080:8080
     tty: true
-  node:
-    build:
-      context: .
-      dockerfile: ./dockerfiles/node/Dockerfile
-    container_name: ${FRONT_DEV_CONTAINER_NAME}
-    volumes:
-      - ./frontend:/frontend
-      - volume_trick:/frontend/node_modules
-    working_dir: /frontend
-    entrypoint: "/bin/bash -c 'npm ci && npm run build'"
   mysql:
     image: mysql:8.0.33
     container_name: ${DB_CONTAINER_NAME}
