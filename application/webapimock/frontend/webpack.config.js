@@ -19,7 +19,10 @@ module.exports = {
             filename: 'index.css',
         }),
     ],
+    watch: true,
     watchOptions: {
-        ignored: /node_modules/
+        poll: 1000,
+        aggregateTimeout: 500,
+        ignored: '**/node_modules/',
     },
 }
