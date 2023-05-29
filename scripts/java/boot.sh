@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd /webapimock/frontend
-npm run build
+npm run dev
 
 cd /webapimock
 ./gradlew bootRun
