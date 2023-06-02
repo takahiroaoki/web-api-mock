@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <link th:href="@{/list/index.css}" rel="stylesheet">
@@ -7,18 +7,18 @@
 
 <body>
     <div class="index__headline">
-        <th:block th:insert="~{list/components/headline/headline::frag(componentid=headline)}"></th:block>
+        <th:block th:replace="~{list/components/headline/headline::frag(componentid=headline)}"></th:block>
     </div>
     <div class="index__create-button">
-        <th:block th:insert="~{list/components/create-button/create-button::frag(componentid=create-button)}">
+        <th:block th:replace="~{list/components/create-button/create-button::frag(componentid=create-button)}">
         </th:block>
     </div>
     <div class="index__form">
-        <th:block th:insert="~{list/components/form/form::frag(componentid=create-form)}">
+        <th:block th:replace="~{list/components/form/form::frag(componentid=create-form)}">
         </th:block>
     </div>
     <div class="index__mock-list">
-        <th:block th:insert="~{list/components/mock-list/mock-list::frag(componentid=mock-list)}"></th:block>
+        <th:block th:replace="~{list/components/mock-list/mock-list::frag(componentid=mock-list)}"></th:block>
     </div>
     <script th:src="@{/list/index.js}"></script>
 </body>
