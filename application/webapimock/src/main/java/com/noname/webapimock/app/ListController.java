@@ -22,6 +22,10 @@ public class ListController {
     @Autowired
     MockService mockService;
 
+    ListController(MockService mockService) {
+        this.mockService = mockService;
+    }
+
     @RequestMapping(path = { "", "/" }, method = RequestMethod.GET)
     String indexAction(Model model) {
         // mock-list

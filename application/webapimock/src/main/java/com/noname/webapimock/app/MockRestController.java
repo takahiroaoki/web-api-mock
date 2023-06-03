@@ -19,6 +19,10 @@ public class MockRestController {
     @Autowired
     MockService mockService;
 
+    MockRestController(MockService mockService) {
+        this.mockService = mockService;
+    }
+
     @RequestMapping(path = "/**")
     String mockAction(HttpServletRequest request, HttpServletResponse response) {
         String mockPath = request.getRequestURI().substring(Path.MOCK_BASE.length());

@@ -16,6 +16,10 @@ public class MockService {
     @Autowired
     private MockRepository mockRepository;
 
+    MockService(MockRepository mockRepository) {
+        this.mockRepository = mockRepository;
+    }
+
     public Optional<Mock> findMockByMockPath(String mockPath) {
         return mockRepository.findById(mockPath);
     }
