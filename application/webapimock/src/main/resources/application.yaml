@@ -5,7 +5,7 @@ spring:
     restart:
       enabled: true
   datasource:
-    url: jdbc:mysql://${DB_CONTAINER_NAME}/${MYSQL_DATABASE}
+    url: jdbc:mysql://${MYSQL_HOST}/${MYSQL_DATABASE}
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     sql-script-encoding: UTF-8
