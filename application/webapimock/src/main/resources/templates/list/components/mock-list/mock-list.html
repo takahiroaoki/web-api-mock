@@ -1,6 +1,6 @@
 <!--
     USAGE:
-    <th:block th:replace="~{list/components/mock-list/mock-list::frag(componentid=XXXXXX)}"></th:block>
+        <th:block th:replace="~{list/components/mock-list/mock-list::frag(componentid='XXXXXX')}" />
 -->
 <div class="mock-list" th:fragment="frag" th:componentid="${componentid}">
     <th:block th:if="${#lists.isEmpty(mockList)}">
@@ -17,23 +17,23 @@
             <div class="mock-list__each">
                 <div class="mock-list__each__item mock-list__each__mock-name">
                     <span>Mock Name: </span>
-                    <span th:text="${mock.mockName}"></span>
+                    <span>[[${mock.mockName}]]</span>
                 </div>
                 <div class="mock-list__each__item mock-list__each__mock-path">
                     <span>Mock URI: </span>
-                    <span th:text="${mock.mockPath}"></span>
+                    <span>[[${mock.mockPath}]]</span>
                 </div>
                 <div class="mock-list__each__item mock-list__each__status-code">
                     <span>Status Code: </span>
-                    <span th:text="${mock.statusCode}"></span>
+                    <span>[[${mock.statusCode}]]</span>
                 </div>
                 <div class="mock-list__each__item mock-list__each__content-type">
                     <span>Content Type: </span>
-                    <span th:text="${mock.contentType}"></span>
+                    <span>[[${mock.contentType}]]</span>
                 </div>
                 <div class="mock-list__each__item mock-list__each__response-body">
                     <span>Response Body: </span>
-                    <span th:text="${mock.responseBody}"></span>
+                    <span>[[${mock.responseBody}]]</span>
                 </div>
             </div>
         </div>

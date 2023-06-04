@@ -35,12 +35,7 @@ $ cd /webapimock/frontend
 $ npm run dev
 ```
 Then, start debugging, the function of VSCode and its Extention.
-
-## Boot
-```
-# Build and boot by Gradle. Get access to http://localhost:8080/list after the build is completed.
-$ docker exec -it webapimock_app /bin/bash /webapimock/scripts/boot.sh
-```
+Get access to http://localhost:8080/list .
 
 ## Test
 ```
