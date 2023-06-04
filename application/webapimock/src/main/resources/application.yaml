@@ -1,11 +1,13 @@
 spring:
   jpa:
     database: MYSQL
-  devtools:
-    restart:
-      enabled: true
   datasource:
     url: jdbc:mysql://${MYSQL_HOST}/${MYSQL_DATABASE}
     username: ${MYSQL_USER}
     password: ${MYSQL_PASSWORD}
     sql-script-encoding: UTF-8
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true

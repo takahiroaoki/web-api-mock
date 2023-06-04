@@ -7,18 +7,17 @@
 
 <body>
     <div class="index__headline">
-        <th:block th:replace="~{list/components/headline/headline::frag(componentid=headline)}"></th:block>
+        <th:block th:replace="~{list/components/headline/headline::frag(componentid='headline')}" />
     </div>
     <div class="index__create-button">
-        <th:block th:replace="~{list/components/create-button/create-button::frag(componentid=create-button)}">
-        </th:block>
+        <th:block th:replace="~{list/components/create-button/create-button::frag(componentid='create-button')}" />
     </div>
     <div class="index__form">
-        <th:block th:replace="~{list/components/form/form::frag(componentid=create-form)}">
-        </th:block>
+        <!-- @ModelAttribute: 'mockForm' -->
+        <th:block th:replace="~{list/components/form/form::frag(componentid='create-form')}" />
     </div>
     <div class="index__mock-list">
-        <th:block th:replace="~{list/components/mock-list/mock-list::frag(componentid=mock-list)}"></th:block>
+        <th:block th:replace="~{list/components/mock-list/mock-list::frag(componentid='mock-list')}" />
     </div>
     <script th:src="@{/list/index.js}"></script>
 </body>
